@@ -22,33 +22,25 @@ function validate() {
 
 
 
-		//passing user and account objects:            
-		aptrinsic("identify", {
-			//User Fields
-			"id": email.substring(0, 8), // Required for logged in app users
-			"email": email,
-			"firstName": email.substring(0, 8),
-			"lastName": "m",
-			"signUpDate": Date.now(), //unix time in ms
-			"role": "",
-           // "city":"Hyderabad",
-            "surveys":true,
-          //  "countryCode":"RO"
-          
-                     "License" : "Standard"
-
-
-		}, {
-			//Account Fields
-			"id": "SF100025", //Required
-			"name": "Eastman Kodak",
-            // "id": "IBM", //Required
-			// "name": "International Business Machine",
-           // "countryCode":"UA",
-			"Program": "Platinum" ,// flat custom attributes
-           // "role": "Customer success"
-		});
-
+		//passing user and account objects:
+aptrinsic("identify",
+  {
+  //User Fields
+    "id": "unique-user-id", // Required for logged in app users
+    "email": "userEmail@address.com",
+    "firstName": "John",
+    "lastName": "Smith",
+    "signUpDate": 1522697426479, //unix time in ms
+    "plan" : "gold", //Custom attributes - please create those custom attributes in Aptrinsic via Account Settings to be tracked.
+    "price" : 95.5,
+    "userHash": "" // optional transient for HMAC identification
+  },
+  {
+  //Account Fields
+    "id":"IBM", //Required
+    "name":"International Business Machine",
+    "Program": "Platinum" // flat custom attributes
+ });
 
 
 
