@@ -5,8 +5,26 @@
     var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
   })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-WCFFRP1MMFBN-2");
 
-
-
+//passing user and account objects:
+aptrinsic("identify",
+  {
+  //User Fields
+    "id": "amandan01", // Required for logged in app users
+    "email": "amandan@gainsight.com",
+    "firstName": "Aditya",
+    "lastName": "Mandan",
+    "signUpDate": 1699553381180, //unix time in ms
+    "plan" : "Premium", //Custom attributes - please create those custom attributes in Aptrinsic via Account Settings to be tracked.
+    "price" : 99.99,
+    "userHash": "" // optional transient for HMAC identification
+  },
+  {
+  //Account Fields
+    "id":"GS", //Required
+    "name":"Gainsight Technologies",
+    "Program": "Platinum" // flat custom attributes
+ });
+return true;
 
 
 function validate() {
@@ -15,44 +33,7 @@ function validate() {
 	var pwd = document.getElementById("pwd").value;
 
 	var username = email.substring(0, 9);
-	localStorage.setItem("Uname", username);
-
-	
-	if ( email == "srinivas.myakala18@gmail.com" || email=="user1@gmail.com" || email=="user2@gmail.com"|| email=="user3@gmail.com"|| email=="user4@gmail.com"|| email=="user5@gmail.com" || email=="user18@gmail.com" || email=="user12@gmail.com" ) {
-
-
-
-		//passing user and account objects:
-aptrinsic("identify",
-  {
-  //User Fields
-    "id": "unique-user-id", // Required for logged in app users
-    "email": "userEmail@address.com",
-    "firstName": "John",
-    "lastName": "Smith",
-    "signUpDate": 1522697426479, //unix time in ms
-    "plan" : "gold", //Custom attributes - please create those custom attributes in Aptrinsic via Account Settings to be tracked.
-    "price" : 95.5,
-    "userHash": "" // optional transient for HMAC identification
-  },
-  {
-  //Account Fields
-    "id":"IBM", //Required
-    "name":"International Business Machine",
-    "Program": "Platinum" // flat custom attributes
- });
-
-
-
-		return true;
-
-	}
-
-    else{
-        alert("user name should contain USER!!!");
-        return false;
-    }
-
+	localStorage.setItem("Uname", username);	
 }
 
 
